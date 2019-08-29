@@ -2,6 +2,9 @@ package tws.entity;
 
 import java.io.Serializable;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+@EntityScan
 public class ParkingLot implements Serializable {
 	private String parkingLotID;
 	private int capacity;
