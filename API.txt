@@ -1,0 +1,73 @@
+1.创建停车男孩
+method: post
+url: /employees
+requestBody:{
+    "employeeID": "001"
+}
+responseBody:
+responseCode:201
+
+2.列出所有停车男孩
+method: get
+url: /employees
+requestBody:
+responseBody:[
+    {
+        "employeeID": "001"
+    },
+    {
+        "employeeID": "002"
+    }
+]
+responseCode:200
+
+3.创建停车场
+method: post
+url: /parkinglots
+requestBody:{
+    "parkingLotID": "001",
+    "capacity": 50
+}
+responseBody:
+responseCode:201
+
+4.列出所有停车场
+method: get
+url: /parkinglots
+requestBody:
+responseBody:[
+    {
+        "parkingLotID": "001",
+        "capacity": 50,
+        "availablePositionCount": 30
+    },
+    {
+        "parkingLotID": "002",
+        "capacity": 100,
+        "availablePositionCount": 60
+    }
+]
+responseCode:200
+
+5.创建停车场与男孩的关联
+method: post
+url: /parkingrelas
+requestBody:{
+    "employeeID": "001"
+    "parkingLotsRela": ["001", "002"]  
+}
+responseBody:
+responseCode:201
+
+6.显示关联关系
+method: get
+url: /parkingrelas
+requestBody:
+responseBody:[
+    {
+        "employeeID": "001"
+        "parkingLotsRela": ["001", "002"]  
+    }
+]
+responseCode:200
+
