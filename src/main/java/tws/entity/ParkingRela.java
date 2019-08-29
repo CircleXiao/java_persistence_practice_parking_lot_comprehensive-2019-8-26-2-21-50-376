@@ -3,6 +3,9 @@ package tws.entity;
 import java.io.Serializable;
 import java.util.List;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+@EntityScan
 public class ParkingRela implements Serializable {
 	private ParkingBoy parkingBoy;
 	private List<ParkingLot> parkingLots;
