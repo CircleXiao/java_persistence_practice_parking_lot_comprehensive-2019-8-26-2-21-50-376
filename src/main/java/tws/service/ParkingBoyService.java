@@ -16,15 +16,23 @@ public class ParkingBoyService {
 
 	public List<ParkingBoy> findAllParkingBoys() {
 		List<ParkingBoy> parkingBoys = parkingBoyMapper.getAllParkingBoys();
-//		List<ParkingBoy> newParkingBoys = new ArrayList<ParkingBoy>();
 		for (ParkingBoy parkingBoy : parkingBoys) {
-			parkingBoy.setName("中原银行" + parkingBoy.getName());
+			parkingBoy.setName("中原银行-" + parkingBoy.getName());
 		}
 		return parkingBoys;
 	}
 
 	public void addParkingBoy(ParkingBoy parkingBoy) {
 		parkingBoyMapper.addParkingBoy(parkingBoy);
+	}
+	
+	public List<ParkingBoy> selectPagingParkingBoys(int page, int pageSize) {
+		List<ParkingBoy> pagingBoys = new ArrayList<ParkingBoy>();
+		
+		int skippedItemCount = (page - 1) * pageSize;
+		pagingBoys = parkingBoyMapper.selectByPage(skippedItemCount, pageSize);
+		
+		return pagingBoys;
 	}
 
 }

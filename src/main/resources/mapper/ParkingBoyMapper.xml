@@ -5,6 +5,11 @@
 		select * from `parkingBoy`
 	</select>
 	
+	<select id="selectByPage" resultType="tws.entity.ParkingBoy">
+		select * from `parkingBoy` 
+		offset #{skippedItemCount} rows fetch next #{pageSize} rows only
+	</select>
+	
 	<insert id="addParkingBoy" parameterType="tws.entity.ParkingBoy">
 		insert into `parkingBoy` values(#{employeeID}, #{name})
 	</insert>
