@@ -12,23 +12,23 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import tws.entity.ParkingBoy;
-import tws.repository.ParkingBoyMapper;
+import tws.service.ParkingBoyService;
 
 @RestController
 @RequestMapping("/parkingboys")
 public class ParkingBoyController {
 	@Autowired
-	private ParkingBoyMapper parkingBoyMapper;
+	private ParkingBoyService parkingBoyService;
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public void addParkingBoy(@RequestBody ParkingBoy parkingBoy) {
-		parkingBoyMapper.addParkingBoy(parkingBoy);
+		parkingBoyService.addParkingBoy(parkingBoy);
 	}
 	
 	@GetMapping
 	public List<ParkingBoy> getAllParkingBoys() {
-		return parkingBoyMapper.getAllParkingBoys();
+		return parkingBoyService.findAllParkingBoys();
 	}
 
 }
