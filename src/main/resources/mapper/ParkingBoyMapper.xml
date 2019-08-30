@@ -6,7 +6,7 @@
 	</select>
 	
 	<insert id="addParkingBoy" parameterType="tws.entity.ParkingBoy">
-		insert into `parkingBoy` values(#{employeeID})
+		insert into `parkingBoy` values(#{employeeID}, #{name})
 	</insert>
 </mapper>
 
