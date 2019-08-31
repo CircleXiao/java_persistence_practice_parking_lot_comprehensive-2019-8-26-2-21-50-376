@@ -81,7 +81,19 @@ public class ParkingBoyMapperTest {
     	assertEquals("hanmeimei", pagingBoys.get(0).getName());
     	assertEquals("004", pagingBoys.get(1).getEmployeeID());
     	assertEquals("hhh", pagingBoys.get(1).getName());
-
+    }
+    
+    @Test
+    public void shouldGetOneParkingBoy() {
+        // given
+        jdbcTemplate.execute("INSERT INTO PARKINGBOY VALUES('001','tom');");
+        String employeeID = "001";
+        
+        // when
+        ParkingBoy parkingBoy = parkingBoyMapper.selectById(employeeID);
+        
+        // then
+        assertEquals("tom", parkingBoy.getName());
     }
 
 }
