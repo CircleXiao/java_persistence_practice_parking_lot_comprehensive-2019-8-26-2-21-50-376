@@ -5,7 +5,12 @@
 		select * from `parkingLot`
 	</select>
 	
+	<select id="selectById" resultType="tws.entity.ParkingLot">
+		select * from `parkingLot` where parkingLotID = #{parkingLotID}
+	</select>
+	
 	<insert id="addParkingLot" parameterType="tws.entity.ParkingLot">
-		insert into `parkingLot` values(#{parkingLotID}, #{capacity}, #{availablePositionCount})
+		insert into `parkingLot` values
+			(#{parkingLotID}, #{capacity}, #{availablePositionCount}, #{parkingBoyId})
 	</insert>
 </mapper>

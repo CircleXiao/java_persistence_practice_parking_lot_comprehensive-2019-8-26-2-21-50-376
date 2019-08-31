@@ -13,7 +13,7 @@ public class ParkingBoy implements Serializable {
 		
 	}
 	
-	public ParkingBoy(String employeeID) {
+	public ParkingBoy(String employeeID, String name) {
 		this.employeeID = employeeID;
 		this.name = name;
 	}

@@ -10,6 +10,10 @@
 		offset #{skippedItemCount} rows fetch next #{pageSize} rows only
 	</select>
 	
+	<select id="selectById" resultType="tws.entity.ParkingBoy">
+		select * from `parkingBoy` where employeeID = #{employeeID}
+	</select>
+	
 	<insert id="addParkingBoy" parameterType="tws.entity.ParkingBoy">
 		insert into `parkingBoy` values(#{employeeID}, #{name})
 	</insert>

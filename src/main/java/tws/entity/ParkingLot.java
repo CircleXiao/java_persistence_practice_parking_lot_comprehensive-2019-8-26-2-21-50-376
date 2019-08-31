@@ -9,15 +9,17 @@ public class ParkingLot implements Serializable {
 	private String parkingLotID;
 	private int capacity;
 	private int availablePositionCount;
+	private String parkingBoyId;
 	
 	public ParkingLot() {
 		
 	}
 
-	public ParkingLot(String parkingLotID, int capacity, int availablePositionCount) {
+	public ParkingLot(String parkingLotID, int capacity, int availablePositionCount, String parkingBoyId) {
 		this.setParkingLotID(parkingLotID);
 		this.setCapacity(capacity);
 		this.setAvailablePositionCount(availablePositionCount);
+		this.setParkingBoyId(parkingBoyId);
 	}
 
 	public String getParkingLotID() {
@@ -42,5 +44,13 @@ public class ParkingLot implements Serializable {
 
 	public void setAvailablePositionCount(int availablePositionCount) {
 		this.availablePositionCount = availablePositionCount;
+	}
+
+	public String getParkingBoyId() {
+		return parkingBoyId;
+	}
+
+	public void setParkingBoyId(String parkingBoyId) {
+		this.parkingBoyId = parkingBoyId;
 	}
 }

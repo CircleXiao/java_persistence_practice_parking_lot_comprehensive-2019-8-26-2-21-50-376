@@ -11,6 +11,8 @@ import tws.entity.ParkingBoy;
 public interface ParkingBoyMapper {
 
 	void addParkingBoy(ParkingBoy parkingBoy);
+	
+	ParkingBoy selectById(@Param("employeeID")String employeeID);
 
 	List<ParkingBoy> getAllParkingBoys();
 	
