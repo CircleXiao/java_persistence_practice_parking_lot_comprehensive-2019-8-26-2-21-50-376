@@ -2,6 +2,8 @@ package tws.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +25,7 @@ public class ParkingBoyController {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public void addParkingBoy(@RequestBody ParkingBoy parkingBoy) {
+	public void addParkingBoy(@RequestBody @Valid ParkingBoy parkingBoy) {
 		parkingBoyService.addParkingBoy(parkingBoy);
 	}
 	

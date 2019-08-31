@@ -3,6 +3,8 @@ package tws.controller;
 import java.util.List;
 import java.util.Map;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +26,7 @@ public class ParkingLotController {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public void addParkingLot(@RequestBody ParkingLot parkingLot) {
+	public void addParkingLot(@RequestBody @Valid ParkingLot parkingLot) {
 		parkingLotService.addParkingLot(parkingLot);
 	}
 	
