@@ -38,18 +38,24 @@ public class ParkingLotMapperTest {
     @Test
     public void shouldFetchAllParkingLots() {
         // given
-        jdbcTemplate.execute("INSERT INTO PARKINGLOT VALUES('001',20,10);");
+        jdbcTemplate.execute("INSERT INTO PARKINGLOT VALUES('001',20,20,'100');");
+        
         // when
         List<ParkingLot> parkingLots = parkingLotMapper.getAllParkingLots();
+        
         // then
         assertEquals(1, parkingLots.size());
     }
     
     @Test
-    public void shouldAddAParkingBoy() {
+    public void shouldAddOneParkingLot() {
     	// given
     	ParkingLot parkingLot = new ParkingLot();
     	parkingLot.setParkingLotID("007");
+    	parkingLot.setCapacity(100);
+    	parkingLot.setAvailablePositionCount(100);
+    	parkingLot.setParkingBoyId("100");
+    	
     	// when
     	parkingLotMapper.addParkingLot(parkingLot);
     	List<ParkingLot> parkingLots = parkingLotMapper.getAllParkingLots();
@@ -58,5 +64,18 @@ public class ParkingLotMapperTest {
     	assertEquals(1, parkingLots.size());
     	
     }
-
+    
+    @Test
+    public void shouldGetOneParkingLot() {
+        // given
+        jdbcTemplate.execute("INSERT INTO PARKINGLOT VALUES('001',20,16,'100');");
+        String parkingLotID = "001";
+        
+        // when
+        ParkingLot parkingLot = parkingLotMapper.selectById(parkingLotID);
+        
+        // then
+        assertEquals(20, parkingLot.getCapacity());
+    }
+    
 }
