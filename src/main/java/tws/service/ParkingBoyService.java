@@ -16,9 +16,9 @@ public class ParkingBoyService {
 
 	public List<ParkingBoy> findAllParkingBoys() {
 		List<ParkingBoy> parkingBoys = parkingBoyMapper.getAllParkingBoys();
-		for (ParkingBoy parkingBoy : parkingBoys) {
-			parkingBoy.setName("ÖÐÔ­ÒøÐÐ-" + parkingBoy.getName());
-		}
+//		for (ParkingBoy parkingBoy : parkingBoys) {
+//			parkingBoy.setName("ï¿½ï¿½Ô­ï¿½ï¿½ï¿½ï¿½-" + parkingBoy.getName());
+//		}
 		return parkingBoys;
 	}
 
